@@ -14,12 +14,18 @@ function getRow(firstWord, secondWord) {
   } else if (aInSecond > aInFirst) {
     return secondWord;
   } else {
-    return "Кількість 'а' в обох рядках однакова.";
+    if (firstWord.length > secondWord.length) {
+      return firstWord;
+    } else if (secondWord.length > firstWord.length) {
+      return secondWord;
+    } else {
+      return "Кількість 'а' в обох рядках однакова.";
+    }
   }
 }
 
 const firstWord = "мама мыла раму";
-const secondWord = "папа мыл раму";
+const secondWord = "папа мыла раму";
 
 const rez = getRow(firstWord, secondWord);
-div.innerHTML = `${firstWord} <br /> ${secondWord} <br /> ${rez}`;
+div.textContent = rez;
